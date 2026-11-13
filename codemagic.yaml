@@ -1,0 +1,19 @@
+
+workflows:
+  angel-cloud-android:
+    name: Angel Cloud Android Build
+    max_build_duration: 60
+
+    environment:
+      java: 17
+
+    scripts:
+      - name: Check Gradle
+        script: gradle --version
+
+      - name: Build Android APK
+        script: gradle assembleDebug
+
+    artifacts:
+      - app/build/outputs/**/*.apk
+      
